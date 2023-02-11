@@ -1,0 +1,18 @@
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+
+network={
+  id_str="network_1"
+  ssid="DuckieNet"
+  psk="CMPUT412_1234!!!Rox"
+  key_mgmt=WPA-PSK
+}
+
+network={
+  id_str="network_2"
+  ssid="DevNet"
+  psk="bP4SLkiTJzaGFETt"
+  key_mgmt=WPA-PSK
+}

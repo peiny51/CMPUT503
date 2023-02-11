@@ -1,0 +1,25 @@
+fahim@fahim-MacBookPro:~/DuckieDocker$ docker -H csc22933.local run -it --privileged -v /tmp/argus_socket:/tmp/argus_socket colordetector
+==> Entrypoint
+The environment variable VEHICLE_NAME is not set. Using '674eb49f37bb'.
+WARNING: robot_type file does not exist. Using 'duckiebot' as default type.
+WARNING: robot_configuration file does not exist.
+WARNING: robot_hardware file does not exist.
+<== Entrypoint
+Hello from 674eb49f37bb!
+/color_detector_dir
+Using GST pipeline: nvarguscamerasrc sensor-mode=3 ! 'video/x-raw(memory:NVMM), width=(int)640, height=(int)480, format=(string)NV12, framerate=(fraction)30/1' ! nvvidconv flip-method=2 ! 'video/x-raw, format=(string)BGRx' ! videoconvert ! 'video/x-raw, format=(string)BGR' ! appsink
+
+(gst-plugin-scanner:59): GStreamer-WARNING **: 22:50:33.167: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvcompositor.so': libgstbadvideo-1.0.so.0: cannot open shared object file: No such file or directory
+
+(python3:1): GStreamer-CRITICAL **: 22:50:34.838: gst_element_make_from_uri: assertion 'gst_uri_is_valid (uri)' failed
+
+(python3:1): GStreamer-CRITICAL **: 22:50:34.840: gst_element_make_from_uri: assertion 'gst_uri_is_valid (uri)' failed
+
+(python3:1): GStreamer-CRITICAL **: 22:50:34.842: gst_element_make_from_uri: assertion 'gst_uri_is_valid (uri)' failed
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (713) open OpenCV | GStreamer warning: Error opening bin: syntax error
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (480) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+Traceback (most recent call last):
+  File "./color_detector.py", line 33, in <module>
+    print(frame.shape)
+AttributeError: 'NoneType' object has no attribute 'shape'
+

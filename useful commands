@@ -1,0 +1,17 @@
+rostopic pub /csc22941/wheels_driver_node/wheels_cmd duckietown_msgs/WheelsCmdStamped  "{vel_left: 0, vel_right: 0}"
+
+dts duckiebot keyboard_control csc22933
+
+dts duckiebot demo --demo_name led_emitter_node --duckiebot_name csc22933 --package_name led_emitter --image duckietown/dt-core:daffy-arm64v8
+
+
+rosbag record /csc22933/velocity_to_pose_node/pose -o vel.bag
+
+
+docker system prune -af
+
+docker container ls
+docker exec -it 044e05319391 bash
+docker cp ee1dec2d7b0e:/code/catkin_ws/src/dt-gui-tools/vel_2023-02-10-16-20-07.bag ~/vel_2023-02-10-16-20-07.bag
+
+docker cp  e540776605c5:/code/catkin_ws/src/503DuckieBot/packages/exercise_two/run.bag ~/run.bag
